@@ -1,0 +1,13 @@
+{
+  "levels": [
+    {
+      "id": "track1",
+      "title": "First Steps",
+      "artist": "Demo Track",
+      "bpm": 120,
+      "difficulty": "Easy",
+      "noteCount": 30,
+      "backgroundSetId": "forest-day"
+    }
+  ]
+}

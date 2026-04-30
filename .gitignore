@@ -1,0 +1,12 @@
+# Generated / local-only files
+/node_modules/
+/dist/
+/.graphify/
+/.playwright-mcp/
+/tests/artifacts/screenshots/
+
+# Unused placeholder sprite assets
+/public/assets/sprites/
+
+# Keep empty placeholder directories out of git
+**/.gitkeep

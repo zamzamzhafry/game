@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "sets": [
+    {
+      "id": "forest-day",
+      "file": "assets/backgrounds/sets/forest-day.json"
+    }
+  ]
+}

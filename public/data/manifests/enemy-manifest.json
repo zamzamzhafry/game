@@ -1,0 +1,65 @@
+{
+  "entities": [
+    {
+      "archetype": "alien",
+      "variant": "blue",
+      "lane": "ground",
+      "states": {
+        "stand": "assets/sprites/enemies/ground-enemies/alienBlue_stand.png",
+        "walk1": "assets/sprites/enemies/ground-enemies/alienBlue_walk1.png",
+        "walk2": "assets/sprites/enemies/ground-enemies/alienBlue_walk2.png",
+        "jump": "assets/sprites/enemies/ground-enemies/alienBlue_jump.png",
+        "hurt": "assets/sprites/enemies/ground-enemies/alienBlue_hurt.png"
+      },
+      "animations": {
+        "walk": {
+          "frames": ["walk1", "walk2"],
+          "frameRate": 8,
+          "repeat": -1
+        }
+      }
+    },
+    {
+      "archetype": "alien",
+      "variant": "green",
+      "lane": "ground",
+      "states": {
+        "stand": "assets/sprites/enemies/ground-enemies/alienGreen_stand.png",
+        "walk1": "assets/sprites/enemies/ground-enemies/alienGreen_walk1.png",
+        "walk2": "assets/sprites/enemies/ground-enemies/alienGreen_walk2.png",
+        "jump": "assets/sprites/enemies/ground-enemies/alienGreen_jump.png",
+        "hurt": "assets/sprites/enemies/ground-enemies/alienGreen_hurt.png"
+      },
+      "animations": {
+        "walk": {
+          "frames": ["walk1", "walk2"],
+          "frameRate": 8,
+          "repeat": -1
+        }
+      }
+    },
+    {
+      "archetype": "ship",
+      "variant": "green",
+      "lane": "air",
+      "states": {
+        "default": "assets/sprites/enemies/flying-enemies/shipGreen.png",
+        "manned": "assets/sprites/enemies/flying-enemies/shipGreen_manned.png",
+        "damage1": "assets/sprites/enemies/flying-enemies/shipGreen_damage1.png",
+        "damage2": "assets/sprites/enemies/flying-enemies/shipGreen_damage2.png"
+      },
+      "animations": {
+        "fly": {
+          "frames": ["default", "manned"],
+          "frameRate": 6,
+          "repeat": -1
+        },
+        "damage": {
+          "frames": ["damage1", "damage2"],
+          "frameRate": 8,
+          "repeat": 0
+        }
+      }
+    }
+  ]
+}

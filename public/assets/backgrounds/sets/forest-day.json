@@ -1,0 +1,98 @@
+{
+  "id": "forest-day",
+  "theme": "forest",
+  "displayName": "Forest Day",
+  "baseHeight": 720,
+  "tiers": {
+    "slow": [
+      {
+        "id": "slow.sky",
+        "assetKey": "bg.forest-day.slow.sky",
+        "texture": { "path": "assets/backgrounds/shared/slow/sky-blue.png" },
+        "position": { "x": 0, "y": 0 },
+        "speed": 6,
+        "depth": -300,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 360
+      },
+      {
+        "id": "slow.clouds",
+        "assetKey": "bg.forest-day.slow.clouds",
+        "texture": { "path": "assets/backgrounds/shared/slow/clouds-soft.png" },
+        "position": { "x": 0, "y": 40 },
+        "speed": 10,
+        "depth": -290,
+        "repeatX": true,
+        "alpha": 0.85,
+        "scale": 1,
+        "height": 180
+      },
+      {
+        "id": "slow.mountains",
+        "assetKey": "bg.forest-day.slow.mountains",
+        "texture": { "path": "assets/backgrounds/shared/slow/mountains-distant.png" },
+        "position": { "x": 0, "y": 200 },
+        "speed": 14,
+        "depth": -280,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 240
+      }
+    ],
+    "medium": [
+      {
+        "id": "medium.hills",
+        "assetKey": "bg.forest-day.medium.hills",
+        "texture": { "path": "assets/backgrounds/shared/medium/hills-green.png" },
+        "position": { "x": 0, "y": 300 },
+        "speed": 35,
+        "depth": -180,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 200
+      },
+      {
+        "id": "medium.trees",
+        "assetKey": "bg.forest-day.medium.trees",
+        "texture": { "path": "assets/backgrounds/levels/forest-day/medium/trees-pine.png" },
+        "position": { "x": 0, "y": 340 },
+        "speed": 50,
+        "depth": -170,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 180
+      }
+    ],
+    "fast": [
+      {
+        "id": "fast.street",
+        "assetKey": "bg.forest-day.fast.street",
+        "texture": { "path": "assets/backgrounds/levels/forest-day/fast/street-dirt.png" },
+        "position": { "x": 0, "y": 580 },
+        "speed": 400,
+        "depth": -80,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 140
+      },
+      {
+        "id": "fast.pebbles",
+        "assetKey": "bg.forest-day.fast.pebbles",
+        "texture": { "path": "assets/backgrounds/shared/fast/pebbles.png" },
+        "position": { "x": 0, "y": 640 },
+        "speed": 380,
+        "depth": -70,
+        "repeatX": true,
+        "alpha": 0.7,
+        "scale": 1,
+        "height": 80
+      }
+    ]
+  }
+}
