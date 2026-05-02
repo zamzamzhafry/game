@@ -1,17 +1,21 @@
 import { Conductor } from './Conductor.js';
 import { LaneModel } from './LaneModel.js';
 
+const GROUND_ENEMY_POOL = Object.freeze([
+  { archetype: 'snail', variant: 'default', state: 'idle' },
+  { archetype: 'mouse', variant: 'default', state: 'idle' },
+  { archetype: 'spider', variant: 'default', state: 'idle' }
+]);
+
+const AIR_ENEMY_POOL = Object.freeze([
+  { archetype: 'bat', variant: 'default', state: 'idle' },
+  { archetype: 'bee', variant: 'default', state: 'idle' },
+  { archetype: 'ghost', variant: 'default', state: 'idle' }
+]);
+
 const LANE_RENDER_DEFAULTS = Object.freeze({
-  [LaneModel.normalizeLane('ground')]: Object.freeze({
-    archetype: 'alien',
-    variant: 'blue',
-    state: 'stand'
-  }),
-  [LaneModel.normalizeLane('air')]: Object.freeze({
-    archetype: 'ship',
-    variant: 'green',
-    state: 'default'
-  })
+  [LaneModel.normalizeLane('ground')]: GROUND_ENEMY_POOL[0],
+  [LaneModel.normalizeLane('air')]: AIR_ENEMY_POOL[0]
 });
 
 const DEFAULT_COUNTDOWN = Object.freeze({

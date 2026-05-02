@@ -1,84 +1,98 @@
 {
   "entities": [
     {
-      "archetype": "dino",
-      "variant": "default",
+      "archetype": "alien",
+      "variant": "green",
       "states": {
-        "idle1": "assets/sprites/player/dino/Idle (1).png",
-        "idle2": "assets/sprites/player/dino/Idle (2).png",
-        "idle3": "assets/sprites/player/dino/Idle (3).png",
-        "idle4": "assets/sprites/player/dino/Idle (4).png",
-        "idle5": "assets/sprites/player/dino/Idle (5).png",
-        "idle6": "assets/sprites/player/dino/Idle (6).png",
-        "idle7": "assets/sprites/player/dino/Idle (7).png",
-        "idle8": "assets/sprites/player/dino/Idle (8).png",
-        "idle9": "assets/sprites/player/dino/Idle (9).png",
-        "idle10": "assets/sprites/player/dino/Idle (10).png",
-        "run1": "assets/sprites/player/dino/Run (1).png",
-        "run2": "assets/sprites/player/dino/Run (2).png",
-        "run3": "assets/sprites/player/dino/Run (3).png",
-        "run4": "assets/sprites/player/dino/Run (4).png",
-        "run5": "assets/sprites/player/dino/Run (5).png",
-        "run6": "assets/sprites/player/dino/Run (6).png",
-        "run7": "assets/sprites/player/dino/Run (7).png",
-        "run8": "assets/sprites/player/dino/Run (8).png",
-        "jump1": "assets/sprites/player/dino/Jump (1).png",
-        "jump2": "assets/sprites/player/dino/Jump (2).png",
-        "jump3": "assets/sprites/player/dino/Jump (3).png",
-        "jump4": "assets/sprites/player/dino/Jump (4).png",
-        "jump5": "assets/sprites/player/dino/Jump (5).png",
-        "jump6": "assets/sprites/player/dino/Jump (6).png",
-        "jump7": "assets/sprites/player/dino/Jump (7).png",
-        "jump8": "assets/sprites/player/dino/Jump (8).png",
-        "jump9": "assets/sprites/player/dino/Jump (9).png",
-        "jump10": "assets/sprites/player/dino/Jump (10).png",
-        "jump11": "assets/sprites/player/dino/Jump (11).png",
-        "jump12": "assets/sprites/player/dino/Jump (12).png",
-        "dead1": "assets/sprites/player/dino/Dead (1).png",
-        "dead2": "assets/sprites/player/dino/Dead (2).png",
-        "dead3": "assets/sprites/player/dino/Dead (3).png",
-        "dead4": "assets/sprites/player/dino/Dead (4).png",
-        "dead5": "assets/sprites/player/dino/Dead (5).png",
-        "dead6": "assets/sprites/player/dino/Dead (6).png",
-        "dead7": "assets/sprites/player/dino/Dead (7).png",
-        "dead8": "assets/sprites/player/dino/Dead (8).png",
-        "walk1": "assets/sprites/player/dino/Walk (1).png",
-        "walk2": "assets/sprites/player/dino/Walk (2).png",
-        "walk3": "assets/sprites/player/dino/Walk (3).png",
-        "walk4": "assets/sprites/player/dino/Walk (4).png",
-        "walk5": "assets/sprites/player/dino/Walk (5).png",
-        "walk6": "assets/sprites/player/dino/Walk (6).png",
-        "walk7": "assets/sprites/player/dino/Walk (7).png",
-        "walk8": "assets/sprites/player/dino/Walk (8).png",
-        "walk9": "assets/sprites/player/dino/Walk (9).png",
-        "walk10": "assets/sprites/player/dino/Walk (10).png"
+        "stand": "assets/sprites/player/alien/alienGreen_stand.png",
+        "walk1": "assets/sprites/player/alien/alienGreen_walk1.png",
+        "walk2": "assets/sprites/player/alien/alienGreen_walk2.png",
+        "jump": "assets/sprites/player/alien/alienGreen_jump.png",
+        "duck": "assets/sprites/player/alien/alienGreen_duck.png",
+        "hurt": "assets/sprites/player/alien/alienGreen_hurt.png"
       },
       "animations": {
-        "idle": {
-          "frames": ["idle1", "idle2", "idle3", "idle4", "idle5", "idle6", "idle7", "idle8", "idle9", "idle10"],
-          "frameRate": 10,
-          "repeat": -1
-        },
-        "run": {
-          "frames": ["run1", "run2", "run3", "run4", "run5", "run6", "run7", "run8"],
-          "frameRate": 14,
-          "repeat": -1
-        },
-        "jump": {
-          "frames": ["jump1", "jump2", "jump3", "jump4", "jump5", "jump6", "jump7", "jump8", "jump9", "jump10", "jump11", "jump12"],
-          "frameRate": 16,
-          "repeat": 0
-        },
-        "dead": {
-          "frames": ["dead1", "dead2", "dead3", "dead4", "dead5", "dead6", "dead7", "dead8"],
-          "frameRate": 8,
-          "repeat": 0
-        },
-        "walk": {
-          "frames": ["walk1", "walk2", "walk3", "walk4", "walk5", "walk6", "walk7", "walk8", "walk9", "walk10"],
-          "frameRate": 12,
-          "repeat": -1
-        }
+        "idle": { "frames": ["stand"], "frameRate": 1, "repeat": -1 },
+        "run":  { "frames": ["walk1", "walk2"], "frameRate": 8, "repeat": -1 },
+        "jump": { "frames": ["jump"], "frameRate": 1, "repeat": 0 },
+        "duck": { "frames": ["duck"], "frameRate": 1, "repeat": 0 },
+        "hurt": { "frames": ["hurt"], "frameRate": 1, "repeat": 0 }
+      }
+    },
+    {
+      "archetype": "alien",
+      "variant": "blue",
+      "states": {
+        "stand": "assets/sprites/player/alien/alienBlue_stand.png",
+        "walk1": "assets/sprites/player/alien/alienBlue_walk1.png",
+        "walk2": "assets/sprites/player/alien/alienBlue_walk2.png",
+        "jump": "assets/sprites/player/alien/alienBlue_jump.png",
+        "duck": "assets/sprites/player/alien/alienBlue_duck.png",
+        "hurt": "assets/sprites/player/alien/alienBlue_hurt.png"
+      },
+      "animations": {
+        "idle": { "frames": ["stand"], "frameRate": 1, "repeat": -1 },
+        "run":  { "frames": ["walk1", "walk2"], "frameRate": 8, "repeat": -1 },
+        "jump": { "frames": ["jump"], "frameRate": 1, "repeat": 0 },
+        "duck": { "frames": ["duck"], "frameRate": 1, "repeat": 0 },
+        "hurt": { "frames": ["hurt"], "frameRate": 1, "repeat": 0 }
+      }
+    },
+    {
+      "archetype": "alien",
+      "variant": "beige",
+      "states": {
+        "stand": "assets/sprites/player/alien/alienBeige_stand.png",
+        "walk1": "assets/sprites/player/alien/alienBeige_walk1.png",
+        "walk2": "assets/sprites/player/alien/alienBeige_walk2.png",
+        "jump": "assets/sprites/player/alien/alienBeige_jump.png",
+        "duck": "assets/sprites/player/alien/alienBeige_duck.png",
+        "hurt": "assets/sprites/player/alien/alienBeige_hurt.png"
+      },
+      "animations": {
+        "idle": { "frames": ["stand"], "frameRate": 1, "repeat": -1 },
+        "run":  { "frames": ["walk1", "walk2"], "frameRate": 8, "repeat": -1 },
+        "jump": { "frames": ["jump"], "frameRate": 1, "repeat": 0 },
+        "duck": { "frames": ["duck"], "frameRate": 1, "repeat": 0 },
+        "hurt": { "frames": ["hurt"], "frameRate": 1, "repeat": 0 }
+      }
+    },
+    {
+      "archetype": "alien",
+      "variant": "pink",
+      "states": {
+        "stand": "assets/sprites/player/alien/alienPink_stand.png",
+        "walk1": "assets/sprites/player/alien/alienPink_walk1.png",
+        "walk2": "assets/sprites/player/alien/alienPink_walk2.png",
+        "jump": "assets/sprites/player/alien/alienPink_jump.png",
+        "duck": "assets/sprites/player/alien/alienPink_duck.png",
+        "hurt": "assets/sprites/player/alien/alienPink_hurt.png"
+      },
+      "animations": {
+        "idle": { "frames": ["stand"], "frameRate": 1, "repeat": -1 },
+        "run":  { "frames": ["walk1", "walk2"], "frameRate": 8, "repeat": -1 },
+        "jump": { "frames": ["jump"], "frameRate": 1, "repeat": 0 },
+        "duck": { "frames": ["duck"], "frameRate": 1, "repeat": 0 },
+        "hurt": { "frames": ["hurt"], "frameRate": 1, "repeat": 0 }
+      }
+    },
+    {
+      "archetype": "alien",
+      "variant": "yellow",
+      "states": {
+        "stand": "assets/sprites/player/alien/alienYellow_stand.png",
+        "walk1": "assets/sprites/player/alien/alienYellow_walk1.png",
+        "walk2": "assets/sprites/player/alien/alienYellow_walk2.png",
+        "jump": "assets/sprites/player/alien/alienYellow_jump.png",
+        "duck": "assets/sprites/player/alien/alienYellow_duck.png",
+        "hurt": "assets/sprites/player/alien/alienYellow_hurt.png"
+      },
+      "animations": {
+        "idle": { "frames": ["stand"], "frameRate": 1, "repeat": -1 },
+        "run":  { "frames": ["walk1", "walk2"], "frameRate": 8, "repeat": -1 },
+        "jump": { "frames": ["jump"], "frameRate": 1, "repeat": 0 },
+        "duck": { "frames": ["duck"], "frameRate": 1, "repeat": 0 },
+        "hurt": { "frames": ["hurt"], "frameRate": 1, "repeat": 0 }
       }
     }
   ]

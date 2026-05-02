@@ -1,15 +1,51 @@
 {
   "entities": [
     {
-      "archetype": "alien",
-      "variant": "blue",
+      "archetype": "snail",
+      "variant": "default",
       "lane": "ground",
       "states": {
-        "stand": "assets/sprites/enemies/ground-enemies/alienBlue_stand.png",
-        "walk1": "assets/sprites/enemies/ground-enemies/alienBlue_walk1.png",
-        "walk2": "assets/sprites/enemies/ground-enemies/alienBlue_walk2.png",
-        "jump": "assets/sprites/enemies/ground-enemies/alienBlue_jump.png",
-        "hurt": "assets/sprites/enemies/ground-enemies/alienBlue_hurt.png"
+        "idle": "assets/sprites/enemies/ground-enemies/snail.png",
+        "walk": "assets/sprites/enemies/ground-enemies/snail_walk.png",
+        "hit": "assets/sprites/enemies/ground-enemies/snail_hit.png",
+        "shell": "assets/sprites/enemies/ground-enemies/snail_shell.png"
+      },
+      "animations": {
+        "walk": {
+          "frames": ["idle", "walk"],
+          "frameRate": 6,
+          "repeat": -1
+        }
+      }
+    },
+    {
+      "archetype": "mouse",
+      "variant": "default",
+      "lane": "ground",
+      "states": {
+        "idle": "assets/sprites/enemies/ground-enemies/mouse.png",
+        "walk": "assets/sprites/enemies/ground-enemies/mouse_walk.png",
+        "hit": "assets/sprites/enemies/ground-enemies/mouse_hit.png",
+        "dead": "assets/sprites/enemies/ground-enemies/mouse_dead.png"
+      },
+      "animations": {
+        "walk": {
+          "frames": ["idle", "walk"],
+          "frameRate": 8,
+          "repeat": -1
+        }
+      }
+    },
+    {
+      "archetype": "spider",
+      "variant": "default",
+      "lane": "ground",
+      "states": {
+        "idle": "assets/sprites/enemies/ground-enemies/spider.png",
+        "walk1": "assets/sprites/enemies/ground-enemies/spider_walk1.png",
+        "walk2": "assets/sprites/enemies/ground-enemies/spider_walk2.png",
+        "hit": "assets/sprites/enemies/ground-enemies/spider_hit.png",
+        "dead": "assets/sprites/enemies/ground-enemies/spider_dead.png"
       },
       "animations": {
         "walk": {
@@ -20,44 +56,56 @@
       }
     },
     {
-      "archetype": "alien",
-      "variant": "green",
-      "lane": "ground",
-      "states": {
-        "stand": "assets/sprites/enemies/ground-enemies/alienGreen_stand.png",
-        "walk1": "assets/sprites/enemies/ground-enemies/alienGreen_walk1.png",
-        "walk2": "assets/sprites/enemies/ground-enemies/alienGreen_walk2.png",
-        "jump": "assets/sprites/enemies/ground-enemies/alienGreen_jump.png",
-        "hurt": "assets/sprites/enemies/ground-enemies/alienGreen_hurt.png"
-      },
-      "animations": {
-        "walk": {
-          "frames": ["walk1", "walk2"],
-          "frameRate": 8,
-          "repeat": -1
-        }
-      }
-    },
-    {
-      "archetype": "ship",
-      "variant": "green",
+      "archetype": "bat",
+      "variant": "default",
       "lane": "air",
       "states": {
-        "default": "assets/sprites/enemies/flying-enemies/shipGreen.png",
-        "manned": "assets/sprites/enemies/flying-enemies/shipGreen_manned.png",
-        "damage1": "assets/sprites/enemies/flying-enemies/shipGreen_damage1.png",
-        "damage2": "assets/sprites/enemies/flying-enemies/shipGreen_damage2.png"
+        "idle": "assets/sprites/enemies/flying-enemies/bat.png",
+        "fly": "assets/sprites/enemies/flying-enemies/bat_fly.png",
+        "hit": "assets/sprites/enemies/flying-enemies/bat_hit.png",
+        "dead": "assets/sprites/enemies/flying-enemies/bat_dead.png"
       },
       "animations": {
         "fly": {
-          "frames": ["default", "manned"],
+          "frames": ["idle", "fly"],
+          "frameRate": 8,
+          "repeat": -1
+        }
+      }
+    },
+    {
+      "archetype": "bee",
+      "variant": "default",
+      "lane": "air",
+      "states": {
+        "idle": "assets/sprites/enemies/flying-enemies/bee.png",
+        "fly": "assets/sprites/enemies/flying-enemies/bee_fly.png",
+        "hit": "assets/sprites/enemies/flying-enemies/bee_hit.png",
+        "dead": "assets/sprites/enemies/flying-enemies/bee_dead.png"
+      },
+      "animations": {
+        "fly": {
+          "frames": ["idle", "fly"],
+          "frameRate": 10,
+          "repeat": -1
+        }
+      }
+    },
+    {
+      "archetype": "ghost",
+      "variant": "default",
+      "lane": "air",
+      "states": {
+        "idle": "assets/sprites/enemies/flying-enemies/ghost.png",
+        "normal": "assets/sprites/enemies/flying-enemies/ghost_normal.png",
+        "hit": "assets/sprites/enemies/flying-enemies/ghost_hit.png",
+        "dead": "assets/sprites/enemies/flying-enemies/ghost_dead.png"
+      },
+      "animations": {
+        "fly": {
+          "frames": ["idle", "normal"],
           "frameRate": 6,
           "repeat": -1
-        },
-        "damage": {
-          "frames": ["damage1", "damage2"],
-          "frameRate": 8,
-          "repeat": 0
         }
       }
     }
