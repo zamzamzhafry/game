@@ -4,6 +4,10 @@
     {
       "id": "forest-day",
       "file": "assets/backgrounds/sets/forest-day.json"
+    },
+    {
+      "id": "kenney-grassland",
+      "file": "assets/backgrounds/sets/kenney-grassland.json"
     }
   ]
 }

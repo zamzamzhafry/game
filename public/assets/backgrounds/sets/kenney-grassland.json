@@ -1,0 +1,110 @@
+{
+  "id": "kenney-grassland",
+  "theme": "grassland",
+  "displayName": "Grassland",
+  "baseHeight": 720,
+  "tiers": {
+    "slow": [
+      {
+        "id": "slow.sky",
+        "assetKey": "bg.kenney-grassland.slow.sky",
+        "texture": { "path": "assets/backgrounds/Backgrounds/backgroundColorGrass.png" },
+        "position": { "x": 0, "y": 0 },
+        "speed": 0,
+        "depth": -300,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 720
+      },
+      {
+        "id": "slow.clouds1",
+        "assetKey": "bg.kenney-grassland.slow.clouds1",
+        "texture": { "path": "assets/backgrounds/Backgrounds/Elements/cloudLayer1.png" },
+        "position": { "x": 0, "y": 20 },
+        "speed": 8,
+        "depth": -295,
+        "repeatX": true,
+        "alpha": 0.7,
+        "scale": 1,
+        "height": 200
+      },
+      {
+        "id": "slow.clouds2",
+        "assetKey": "bg.kenney-grassland.slow.clouds2",
+        "texture": { "path": "assets/backgrounds/Backgrounds/Elements/cloudLayer2.png" },
+        "position": { "x": 0, "y": 60 },
+        "speed": 12,
+        "depth": -290,
+        "repeatX": true,
+        "alpha": 0.6,
+        "scale": 1,
+        "height": 200
+      },
+      {
+        "id": "slow.mountains",
+        "assetKey": "bg.kenney-grassland.slow.mountains",
+        "texture": { "path": "assets/backgrounds/Backgrounds/Elements/mountains.png" },
+        "position": { "x": 0, "y": 200 },
+        "speed": 10,
+        "depth": -280,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 300
+      }
+    ],
+    "medium": [
+      {
+        "id": "medium.hills-large",
+        "assetKey": "bg.kenney-grassland.medium.hills-large",
+        "texture": { "path": "assets/backgrounds/Backgrounds/Elements/hillsLarge.png" },
+        "position": { "x": 0, "y": 300 },
+        "speed": 30,
+        "depth": -200,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 250
+      },
+      {
+        "id": "medium.hills",
+        "assetKey": "bg.kenney-grassland.medium.hills",
+        "texture": { "path": "assets/backgrounds/Backgrounds/Elements/hills.png" },
+        "position": { "x": 0, "y": 380 },
+        "speed": 50,
+        "depth": -190,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 200
+      }
+    ],
+    "fast": [
+      {
+        "id": "fast.ground1",
+        "assetKey": "bg.kenney-grassland.fast.ground1",
+        "texture": { "path": "assets/backgrounds/Backgrounds/Elements/groundLayer1.png" },
+        "position": { "x": 0, "y": 580 },
+        "speed": 350,
+        "depth": -100,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 140
+      },
+      {
+        "id": "fast.ground2",
+        "assetKey": "bg.kenney-grassland.fast.ground2",
+        "texture": { "path": "assets/backgrounds/Backgrounds/Elements/groundLayer2.png" },
+        "position": { "x": 0, "y": 640 },
+        "speed": 400,
+        "depth": -80,
+        "repeatX": true,
+        "alpha": 1,
+        "scale": 1,
+        "height": 80
+      }
+    ]
+  }
+}
