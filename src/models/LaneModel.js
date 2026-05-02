@@ -4,13 +4,13 @@ export const LANE_TYPES = Object.freeze({
 });
 
 export const LANE_KEYS = Object.freeze({
-  [LANE_TYPES.GROUND]: 'F',
-  [LANE_TYPES.AIR]: 'J'
+  [LANE_TYPES.GROUND]: 'Z',
+  [LANE_TYPES.AIR]: 'A'
 });
 
 const KEY_TO_LANE = Object.freeze({
-  F: LANE_TYPES.GROUND,
-  J: LANE_TYPES.AIR
+  Z: LANE_TYPES.GROUND,
+  A: LANE_TYPES.AIR
 });
 
 export class LaneModel {

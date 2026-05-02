@@ -1,20 +1,14 @@
-export const AssetKeys = {
-  DinoIdle: 'dino_idle',
-  DinoRun: 'dino_run',
-  DinoJump: 'dino_jump',
-  DinoDead: 'dino_dead',
-  DinoWalk: 'dino_walk',
+// Asset keys are generated dynamically from manifests via manifestUtils.
+// These static keys are for non-manifest assets only.
 
-  AlienBlueStand: 'alienBlue_stand',
-  AlienBlueWalk1: 'alienBlue_walk1',
-  AlienBlueWalk2: 'alienBlue_walk2',
-  AlienBlueJump: 'alienBlue_jump',
-  AlienBlueHurt: 'alienBlue_hurt',
+export const FontKeys = {
+  Peaberry: 'font_peaberry'
+};
 
-  ShipGreen: 'shipGreen',
-  ShipGreenManned: 'shipGreen_manned',
-  ShipGreenDamage1: 'shipGreen_damage1',
-  ShipGreenDamage2: 'shipGreen_damage2'
+export const BgImageKeys = {
+  Forest: 'bg_img_forest',
+  Castles: 'bg_img_castles',
+  Desert: 'bg_img_desert'
 };
 
 export const VoiceKeys = {
@@ -23,25 +17,56 @@ export const VoiceKeys = {
   Go: 'voice_go',
   One: 'voice_1',
   Two: 'voice_2',
-  Three: 'voice_3'
+  Three: 'voice_3',
+  GameOver: 'voice_game_over',
+  YouWin: 'voice_you_win',
+  NewHighscore: 'voice_new_highscore'
 };
 
 export const MusicKeys = {
   Track1: 'music_track1'
 };
 
+export const JingleKeys = {
+  Win: 'jingle_win',
+  Lose: 'jingle_lose'
+};
+
 export const SfxKeys = {
   Hit: 'sfx_hit',
   Miss: 'sfx_miss',
   GroundAttack: 'sfx_ground_attack',
-  AirAttack: 'sfx_air_attack'
+  AirAttack: 'sfx_air_attack',
+  LaserShoot: 'sfx_laser_shoot',
+  UiClick: 'sfx_ui_click',
+  UiConfirm: 'sfx_ui_confirm',
+  UiBack: 'sfx_ui_back'
 };
 
-export const AnimKeys = {
-  DinoIdle: 'anim_dino_idle',
-  DinoRun: 'anim_dino_run',
-  DinoJump: 'anim_dino_jump',
-  DinoDead: 'anim_dino_dead',
-  DinoWalk: 'anim_dino_walk',
-  AlienBlueWalk: 'anim_alienBlue_walk'
+export const UiKeys = {
+  KeyZ: 'ui_key_z',
+  KeyA: 'ui_key_a',
+  KeyD: 'ui_key_d',
+  KeyQ: 'ui_key_q',
+  TouchTap: 'ui_touch_tap'
+};
+
+export const ParticleKeys = {
+  Circle01: 'particle_circle_01',
+  Circle02: 'particle_circle_02',
+  Star01: 'particle_star_01',
+  Flare01: 'particle_flare_01',
+  Spark01: 'particle_spark_01',
+  Smoke01: 'particle_smoke_01'
+};
+
+export const LaserKeys = {
+  Blue1: 'laser_blue_1',
+  Blue2: 'laser_blue_2',
+  BlueBurst: 'laser_blue_burst',
+  Green1: 'laser_green_1',
+  Green2: 'laser_green_2',
+  GreenBurst: 'laser_green_burst',
+  Pink1: 'laser_pink_1',
+  PinkBurst: 'laser_pink_burst'
 };
