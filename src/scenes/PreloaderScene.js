@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import {
   VoiceKeys, MusicKeys, SfxKeys, UiKeys,
   JingleKeys, ParticleKeys, LaserKeys,
-  FontKeys, BgImageKeys
+  FontKeys, BgImageKeys, FeverKeys
 } from '../config/assets';
 import {
   normalizeAssetManifest,
@@ -55,6 +55,7 @@ export class PreloaderScene extends Phaser.Scene {
     this.load.audio(SfxKeys.UiBack, 'assets/audio/sfx/fx2/back_001.ogg');
 
     this.load.audio(MusicKeys.Track1, 'assets/audio/music/track1.mp3');
+    this.load.audio(MusicKeys.FeverLayer, 'assets/audio/music/fever-layer.wav');
     this.load.audio(JingleKeys.Win, 'assets/audio/sfx/music/8-Bit jingles/jingles_NES00.ogg');
     this.load.audio(JingleKeys.Lose, 'assets/audio/sfx/music/8-Bit jingles/jingles_NES04.ogg');
 
@@ -73,6 +74,9 @@ export class PreloaderScene extends Phaser.Scene {
     this.load.image(UiKeys.KeyD, 'assets/ui/keybm/Default/keyboard_d.png');
     this.load.image(UiKeys.KeyQ, 'assets/ui/keybm/Default/keyboard_q.png');
     this.load.image(UiKeys.TouchTap, 'assets/ui/touch/Default/touch_tap.png');
+    this.load.image(FeverKeys.ComboBurst0, 'assets/ui/comboburst/comboburst-0.png');
+    this.load.image(FeverKeys.ComboBurst1, 'assets/ui/comboburst/comboburst-1.png');
+    this.load.image(FeverKeys.ComboBurst2, 'assets/ui/comboburst/comboburst-2.png');
 
     this.load.image(ParticleKeys.Circle01, 'assets/particles/PNG (Transparent)/circle_01.png');
     this.load.image(ParticleKeys.Circle02, 'assets/particles/PNG (Transparent)/circle_02.png');

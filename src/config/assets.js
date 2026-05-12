@@ -24,7 +24,8 @@ export const VoiceKeys = {
 };
 
 export const MusicKeys = {
-  Track1: 'music_track1'
+  Track1: 'music_track1',
+  FeverLayer: 'music_fever_layer'
 };
 
 export const JingleKeys = {
@@ -69,4 +70,10 @@ export const LaserKeys = {
   GreenBurst: 'laser_green_burst',
   Pink1: 'laser_pink_1',
   PinkBurst: 'laser_pink_burst'
+};
+
+export const FeverKeys = {
+  ComboBurst0: 'ui_combo_burst_0',
+  ComboBurst1: 'ui_combo_burst_1',
+  ComboBurst2: 'ui_combo_burst_2'
 };

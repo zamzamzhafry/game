@@ -6,6 +6,9 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:4173',
     headless: true,
+    launchOptions: {
+      args: ['--use-angle=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist']
+    },
     screenshot: 'only-on-failure'
   },
   webServer: {
