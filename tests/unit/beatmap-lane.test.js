@@ -25,9 +25,9 @@ const sampleBeatmap = {
 };
 
 test('LaneModel maps key inputs to deterministic lanes', () => {
-  assert.equal(LaneModel.keyToLane('F'), LANE_TYPES.GROUND);
-  assert.equal(LaneModel.keyToLane('f'), LANE_TYPES.GROUND);
-  assert.equal(LaneModel.keyToLane('J'), LANE_TYPES.AIR);
+  assert.equal(LaneModel.keyToLane('Z'), LANE_TYPES.GROUND);
+  assert.equal(LaneModel.keyToLane('z'), LANE_TYPES.GROUND);
+  assert.equal(LaneModel.keyToLane('A'), LANE_TYPES.AIR);
   assert.equal(LaneModel.keyToLane('x'), null);
 });
 
@@ -73,13 +73,13 @@ test('BeatmapModel preserves optional render metadata with lane defaults', () =>
   assert.deepEqual(
     notes.map((note) => ({ archetype: note.archetype, variant: note.variant, state: note.state })),
     [
-      { archetype: 'alien', variant: 'blue', state: 'stand' },
-      { archetype: 'ship', variant: 'green', state: 'default' },
+      { archetype: 'snail', variant: 'default', state: 'idle' },
+      { archetype: 'bat', variant: 'default', state: 'idle' },
       { archetype: 'alien', variant: 'green', state: 'hurt' }
     ]
   );
 
-  assert.deepEqual(notes[0].render, { archetype: 'alien', variant: 'blue', state: 'stand' });
-  assert.deepEqual(notes[1].render, { archetype: 'ship', variant: 'green', state: 'default' });
+  assert.deepEqual(notes[0].render, { archetype: 'snail', variant: 'default', state: 'idle' });
+  assert.deepEqual(notes[1].render, { archetype: 'bat', variant: 'default', state: 'idle' });
   assert.deepEqual(notes[2].render, { archetype: 'alien', variant: 'green', state: 'hurt' });
 });

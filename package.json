@@ -7,12 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "test": "node --test tests/unit/**/*.test.js",
+    "test:e2e": "playwright test",
     "preview": "vite preview"
   },
   "dependencies": {
     "phaser": "^3.90.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.54.2",
     "vite": "^5.4.11"
   }
 }
