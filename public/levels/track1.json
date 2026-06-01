@@ -9,7 +9,7 @@
     "leadInBeats": 4,
     "spokenSequence": ["3", "2", "1", "go"],
     "availableVoices": ["3", "2", "1", "go"],
-    "initialDelayMs": 1000,
+    "initialDelayMs": 2000,
     "stepDurationMs": 1000
   },
   "enemies": [

@@ -34,3 +34,15 @@ test('ScoreModel updates score/combo deterministically from judgments', () => {
   assert.equal(snapshot.maxCombo, 2);
   assert.equal(snapshot.missCount, 1);
 });
+
+test('ScoreModel supports fever multipliers and flat bonus', () => {
+  const score = new ScoreModel();
+
+  score.applyJudgment(JUDGMENTS.PERFECT, { multiplier: 1.5, flatBonus: 250 });
+  score.applyJudgment(JUDGMENTS.GOOD, { multiplier: 2 });
+
+  const snapshot = score.getSnapshot();
+  assert.equal(snapshot.score, 2750);
+  assert.equal(snapshot.combo, 2);
+  assert.equal(snapshot.maxCombo, 2);
+});

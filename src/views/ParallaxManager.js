@@ -51,7 +51,6 @@ export class ParallaxManager {
       await new Promise((resolve, reject) => {
         scene.load.once(Phaser.Loader.Events.COMPLETE, resolve);
         scene.load.once('loaderror', (file) => {
-          // Intentionally not rejecting — missing textures get procedural placeholders
           console.warn(`[ParallaxManager] Failed to load: ${file.key} (${file.url}). Will use placeholder.`);
         });
         scene.load.start();
@@ -62,8 +61,12 @@ export class ParallaxManager {
   createLayers() {
     if (!this.setData) return;
 
+    this._clearLayers();
+
     const { width, height } = this.scene.scale;
     const tiers = ['slow', 'medium', 'fast'];
+    const baseHeight = this.setData.baseHeight || height;
+    const verticalRatio = height / baseHeight;
 
     for (const tier of tiers) {
       const tierLayers = this.setData.tiers[tier] || [];
@@ -74,15 +77,17 @@ export class ParallaxManager {
         let textureKey = layerDef.assetKey;
 
         if (!hasTexture) {
-          textureKey = this._generatePlaceholder(layerDef, tier, idx, fallbackColors);
+          textureKey = this._generatePlaceholder(layerDef, tier, idx, fallbackColors, verticalRatio);
         }
 
-        const layerH = layerDef.height || height;
+        const layerScale = layerDef.scale || 1;
+        const layerY = (layerDef.position?.y || 0) * verticalRatio;
+        const layerHeight = (layerDef.height || height) * verticalRatio * layerScale;
         const ts = this.scene.add.tileSprite(
-          layerDef.position.x,
-          layerDef.position.y,
+          0,
+          layerY,
           width,
-          layerH,
+          layerHeight,
           textureKey
         );
 
@@ -91,10 +96,11 @@ export class ParallaxManager {
         ts.setDepth(layerDef.depth);
         ts.setAlpha(layerDef.alpha ?? 1);
 
-        if (layerDef.scale && layerDef.scale !== 1) {
-          ts.setScale(layerDef.scale);
+        if (typeof ts.setTileScale === 'function' && layerScale !== 1) {
+          ts.setTileScale(layerScale, layerScale);
         }
 
+        ts.tilePositionX = (layerDef.position?.x || 0) * layerScale;
         ts.setData('speed', layerDef.speed);
         ts.setData('layerId', layerDef.id);
 
@@ -131,11 +137,15 @@ export class ParallaxManager {
 
   destroy() {
     this.running = false;
+    this._clearLayers();
+    this.setData = null;
+  }
+
+  _clearLayers() {
     for (const ts of this.layers) {
       ts.destroy();
     }
     this.layers = [];
-    this.setData = null;
   }
 
   _flatLayers() {
@@ -148,12 +158,12 @@ export class ParallaxManager {
     ];
   }
 
-  _generatePlaceholder(layerDef, tier, idx, fallbackColors) {
+  _generatePlaceholder(layerDef, tier, idx, fallbackColors, verticalRatio = 1) {
     const key = `${layerDef.assetKey}__placeholder`;
     if (this.scene.textures.exists(key)) return key;
 
     const { width } = this.scene.scale;
-    const h = layerDef.height || 200;
+    const h = Math.max(1, Math.round((layerDef.height || 200) * verticalRatio * (layerDef.scale || 1)));
     const color = fallbackColors[idx % fallbackColors.length];
 
     const g = this.scene.make.graphics({ x: 0, y: 0, add: false });

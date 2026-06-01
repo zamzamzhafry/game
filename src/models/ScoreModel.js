@@ -22,10 +22,14 @@ export class ScoreModel {
     this.missCount = 0;
   }
 
-  applyJudgment(judgment) {
+  applyJudgment(judgment, options = {}) {
     assertJudgment(judgment);
 
-    this.score += POINTS_BY_JUDGMENT[judgment];
+    const multiplier = Number.isFinite(options.multiplier) ? Math.max(0, options.multiplier) : 1;
+    const flatBonus = Number.isFinite(options.flatBonus) ? Math.max(0, options.flatBonus) : 0;
+
+    const basePoints = POINTS_BY_JUDGMENT[judgment];
+    this.score += Math.round(basePoints * multiplier) + flatBonus;
 
     if (judgment === JUDGMENTS.PERFECT) {
       this.perfectCount += 1;
@@ -54,3 +58,5 @@ export class ScoreModel {
     };
   }
 }
+
+

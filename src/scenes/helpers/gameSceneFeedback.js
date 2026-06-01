@@ -19,7 +19,7 @@ export function fireLaser(scene, lane) {
   const laser = scene.add.image(scene.PLAYER_X + 30, y, laserKey);
   laser.setOrigin(0, 0.5);
   laser.setDepth(15);
-  laser.setScale(1.5, 1);
+  laser.setScale(scene.isFeverActive ? 1.9 : 1.5, 1);
   laser.setAngle(0);
 
   scene.sound.play(SfxKeys.LaserShoot, { volume: FX_VOLUME.laser });
@@ -27,8 +27,8 @@ export function fireLaser(scene, lane) {
   scene.tweens.add({
     targets: laser,
     x: scene.HIT_X + 40,
-    alpha: { from: 1, to: 0.3 },
-    scaleX: scene.isFeverActive ? 2.5 : 2,
+    alpha: { from: 1, to: 0.25 },
+    scaleX: scene.isFeverActive ? 2.8 : 2,
     duration: 120,
     ease: 'Power2',
     onComplete: () => {
@@ -39,7 +39,7 @@ export function fireLaser(scene, lane) {
         burst.setTint(scene.isFeverActive ? 0xff77ff : 0xffffff);
         scene.tweens.add({
           targets: burst,
-          scale: scene.isFeverActive ? 2 : 1.5,
+          scale: scene.isFeverActive ? 2.2 : 1.5,
           alpha: 0,
           duration: 200,
           onComplete: () => burst.destroy()
@@ -59,7 +59,7 @@ export function spawnHitParticles(scene, judgment, laneY) {
   scene.add.particles(scene.HIT_X, laneY - 20, particleKey, {
     speed: { min: 60, max: scene.isFeverActive ? 260 : 180 },
     angle: { min: 220, max: 320 },
-    scale: { start: scene.isFeverActive ? 0.9 : 0.6, end: 0 },
+    scale: { start: scene.isFeverActive ? 0.95 : 0.6, end: 0 },
     lifespan: 400,
     quantity: judgment === 'Perfect' ? (scene.isFeverActive ? 18 : 12) : (scene.isFeverActive ? 10 : 6),
     tint: scene.isFeverActive ? [tint, 0xff66ff, 0x66ffff] : tint,
@@ -114,7 +114,10 @@ export function showComboBurst(scene) {
 }
 
 export function recordJudgment(scene, judgment) {
-  const snapshot = scene.scoreModel.applyJudgment(judgment);
+  const snapshot = scene.scoreModel.applyJudgment(judgment, {
+    multiplier: scene.isFeverActive ? scene.feverScoreMultiplier : 1,
+    flatBonus: scene.isFeverActive && judgment !== 'Miss' ? scene.feverScoreFlatBonus : 0
+  });
   scene.lastJudgment = `${judgment} | Combo ${snapshot.combo}`;
 
   const laneY = scene.lastHitLane === LANE_TYPES.AIR ? scene.AIR_Y : scene.GROUND_Y;
@@ -141,7 +144,7 @@ export function recordJudgment(scene, judgment) {
 
   if (scene.scoreText) {
     scene.scoreText.setText(`SCORE: ${snapshot.score}`);
-    scene.comboText.setText(`COMBO: ${snapshot.combo}`);
+    scene.comboText.setText(scene.isFeverActive ? `COMBO xFEVER: ${snapshot.combo}` : `COMBO: ${snapshot.combo}`);
 
     scene.judgmentText.setPosition(scene.HIT_X, laneY - 60);
     scene.judgmentText.setText(judgment);
@@ -162,7 +165,7 @@ export function recordJudgment(scene, judgment) {
 
     scene.tweens.killTweensOf(scene.judgmentText);
     scene.judgmentText.setAlpha(1);
-    scene.judgmentText.setScale(scene.isFeverActive ? 1.8 : 1.5);
+    scene.judgmentText.setScale(scene.isFeverActive ? 1.9 : 1.5);
     scene.judgmentText.y = laneY - 60;
     scene.tweens.add({
       targets: scene.judgmentText,

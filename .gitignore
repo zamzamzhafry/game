@@ -4,9 +4,15 @@
 /.graphify/
 /.playwright-mcp/
 /tests/artifacts/screenshots/
+/test-results/
+preview.err
+preview.log
 
 # Unused placeholder sprite assets
 /public/assets/sprites/
 
 # Keep empty placeholder directories out of git
 **/.gitkeep
+
+.vercel
+

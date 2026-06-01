@@ -2,14 +2,17 @@ import { buildFinalResultsPayload } from '../../services/buildFinalResultsPayloa
 import { VoiceKeys } from '../../config/assets.js';
 
 export const FEVER_DEFAULTS = Object.freeze({
-  meterMax: 10,
+  meterMax: 8,
   missPenalty: 0.5,
-  durationMs: 8000,
+  durationMs: 9000,
   musicVolume: 0.6,
   feverLayerVolume: 0.45,
   musicFadeInMs: 500,
   musicFadeOutMs: 800,
-  voiceVolume: 0.7
+  voiceVolume: 0.7,
+  scoreMultiplier: 1.5,
+  scoreFlatBonus: 100,
+  burstMilestoneStep: 4
 });
 
 function getVoiceKey(clipName) {
@@ -29,6 +32,8 @@ export function initFeverState(scene) {
   scene.feverMeterMax = FEVER_DEFAULTS.meterMax;
   scene.feverMissPenalty = FEVER_DEFAULTS.missPenalty;
   scene.feverDurationMs = FEVER_DEFAULTS.durationMs;
+  scene.feverScoreMultiplier = FEVER_DEFAULTS.scoreMultiplier;
+  scene.feverScoreFlatBonus = FEVER_DEFAULTS.scoreFlatBonus;
   scene.isFeverActive = false;
   scene.feverEndsAtMs = 0;
   scene.lastComboBurstIndex = -1;
@@ -194,6 +199,10 @@ export function updateFeverState(scene, judgment, combo) {
 
   if (!scene.isFeverActive && scene.feverMeter >= scene.feverMeterMax) {
     startFever(scene);
+  }
+
+  if (judgment !== 'Miss' && combo > 0 && combo % FEVER_DEFAULTS.burstMilestoneStep === 0) {
+    scene.showComboBurst?.();
   }
 
   scene.updateFeverHud?.();

@@ -116,7 +116,7 @@ export class GameScene extends Phaser.Scene {
     this.scrollSpeed = rawBeatmap.scrollSpeed || 400;
 
     this.parallax = new ParallaxManager(this);
-    const bgSetId = this.registry.get('selectedBgSet') || rawBeatmap.backgroundSetId || 'forest-day';
+    const bgSetId = rawBeatmap.backgroundSetId || this.registry.get('selectedBgSet') || 'forest-day';
     this.parallax.loadSet(bgSetId).then(() => {
       this.parallax.createLayers();
     });
@@ -403,3 +403,4 @@ export class GameScene extends Phaser.Scene {
     }
   }
 }
+

@@ -2,7 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="icon" href="data:," />
     <title>Two-Lane Rhythm Runner</title>
     <style>
@@ -10,17 +15,131 @@
       body {
         margin: 0;
         height: 100%;
+        width: 100%;
         background: #101010;
+        overflow: hidden;
+        overscroll-behavior: none;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
       }
 
       body {
         display: grid;
         place-items: center;
       }
+
+      #game-container {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #game-container canvas {
+        display: block;
+        touch-action: none;
+      }
+
+      #fullscreen-btn {
+        position: fixed;
+        top: env(safe-area-inset-top, 8px);
+        right: env(safe-area-inset-right, 8px);
+        z-index: 50;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        margin: 8px;
+        background: rgba(20, 20, 30, 0.55);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        cursor: pointer;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      #fullscreen-btn svg { width: 20px; height: 20px; }
+
+      body.is-fullscreen #fullscreen-btn { display: none; }
+      body.portrait-lock #fullscreen-btn { display: none; }
+      body.show-fs-btn:not(.is-fullscreen):not(.portrait-lock) #fullscreen-btn { display: inline-flex; }
+
+      #orientation-lock {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 32px;
+        background: linear-gradient(180deg, #0a0a14 0%, #14142a 100%);
+        color: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        text-align: center;
+      }
+
+      body.portrait-lock #orientation-lock {
+        display: flex;
+      }
+
+      #orientation-lock svg {
+        width: 88px;
+        height: 88px;
+        animation: rotateHint 2.4s ease-in-out infinite;
+      }
+
+      #orientation-lock h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      #orientation-lock p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        opacity: 0.78;
+        max-width: 280px;
+      }
+
+      @keyframes rotateHint {
+        0%, 20% { transform: rotate(0deg); }
+        50%, 70% { transform: rotate(-90deg); }
+        100% { transform: rotate(0deg); }
+      }
     </style>
   </head>
   <body>
     <div id="game-container"></div>
+
+    <button id="fullscreen-btn" type="button" aria-label="Enter fullscreen" title="Fullscreen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 9V5a1 1 0 0 1 1-1h4" />
+        <path d="M20 9V5a1 1 0 0 0-1-1h-4" />
+        <path d="M4 15v4a1 1 0 0 0 1 1h4" />
+        <path d="M20 15v4a1 1 0 0 1-1 1h-4" />
+      </svg>
+    </button>
+
+    <div id="orientation-lock" role="dialog" aria-label="Rotate your device">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="6" y="2" width="12" height="20" rx="2" ry="2" />
+        <circle cx="12" cy="18" r="0.6" fill="currentColor" stroke="none" />
+      </svg>
+      <h1>Rotate your device</h1>
+      <p>This game plays in landscape. Turn your phone sideways to continue.</p>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
